@@ -48,20 +48,29 @@ class StreamProcessor(object):
     def process(self):
         """
         TODO: Implement the `process` method, as described above.
-        
-        :return: int
-        """
-
         count = 0  # How many two-digit numbers the `process` method has added
                    # together.
         total = 0  # The running total of sums.
-
-        # TODO: WRITE CODE HERE:
-
+        :return: int
+        """
         # Just some example syntax, you can read two digits from the head of the
         # stream using the following code:
         #
         # digits = self._stream.read(2)
+        count = 0
+        total = 0
 
+        # 1. Check if count is less than 10
+        while count < 10 and total < 200:
+            # 1. Read 2 digits from the stream
+            digits = self._stream.read(2)
+            # 2. Convert the 2 digits from char into int
+            if len(digits) < 2:
+                break
+            digits = int(digits)
+            # 3. Add into total and add 1 to count
+            total += digits
+            count += 1
+            # 4. Check if total is more or less than 200
 
         return count
